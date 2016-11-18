@@ -9,7 +9,6 @@ var config = {
     logs: {
         level: 'debug',
         logsPerPage: 20,
-        delimiter: "\t",
         path: ''
     }
 };

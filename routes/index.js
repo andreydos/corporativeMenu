@@ -6,8 +6,8 @@ var config = require('../config');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	wLogger.req.info(req, 'Успешно');
-    res.send('respond with a resource');
+	wLogger.req.info(req, 'Успешный переход на стартовую страницу');
+    res.render('index');
 });
 
 module.exports = router;

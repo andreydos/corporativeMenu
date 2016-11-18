@@ -23,10 +23,8 @@ var config = require('../config'),
     winstonConfig = require('winston/lib/winston/config'),
     fs = require('fs'),
     mkdirp = require('mkdirp'),
-    helper = require('./helper'),
     path = require('path'),
-    appDir = path.dirname(require.main.filename),
-    delimiter = config.logs.delimiter || ';';//Разделитель между полями
+    appDir = path.dirname(require.main.filename);
 
 /**
  * Получаем путь к корню проекта
@@ -52,7 +50,7 @@ fs.access(
 
 var formatter = function (options) {
     var _result = {
-        date: helper.formatDate(new Date()),
+        date: new Date().toString(),
         level: options.level.toUpperCase(),
         message: (typeof options.message === 'undefined' ? '' : options.message),
         meta: options.meta.meta,
