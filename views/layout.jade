@@ -1,0 +1,16 @@
+doctype html
+html(lang='ru')
+  head
+    title= title
+    meta(charset="utf-8")
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    
+    include head
+
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='.stylesheets/normalize.min.css')
+  body
+  
+    include header
+    block content
+    include footer
