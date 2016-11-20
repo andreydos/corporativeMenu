@@ -1,17 +1,31 @@
 extends layout
 
 block content
-    p Hello
-   
-    script(src='https://www.gstatic.com/firebasejs/3.6.1/firebase.js')
-    script.
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyBzSBaFrD-CsOE-L4YYo6e2pNODl5btDsM",
-            authDomain: "test-base-cfbe6.firebaseapp.com",
-            databaseURL: "https://test-base-cfbe6.firebaseio.com",
-            storageBucket: "test-base-cfbe6.appspot.com",
-            messagingSenderId: "1002671971964"
-        };
-        firebase.initializeApp(config);
+    #container
+        h3 FirebaseUI Demo
+        #loading Loading...
+        #loaded.hidden
+            #main
+                #user-signed-in.hidden
+                    #user-info
+                        #photo-container
+                            img#photo
+                        #name
+                        #email
+                        .clearfix
+                    p
+                        button#sign-out Sign Out
+                        button#delete-account Delete account
+                #user-signed-out.hidden
+                    h4 You are signed out.
+                    p
+                        button#sign-in-with-redirect Sign In with Redirect
+                        button#sign-in-with-popup Sign In with Popup
+                    #firebaseui-spa
+                        h5 Single Page Application mode:
+                        #firebaseui-container
+
+    #test
+
+    script(src="/js/auth.js")
     script(src="/js/main.js")

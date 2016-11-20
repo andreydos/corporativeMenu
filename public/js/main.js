@@ -11,7 +11,7 @@ function writeUserData(userId, name, group, imageUrl) {
 
 var userRef = firebase.database().ref('users/');
 userRef.on('value', function(snapshot) {
-    document.querySelector('p').innerHTML = snapshot.val()[123].username;
+    document.querySelector('#test').innerHTML = snapshot.val()[123].username;
 });
 
 writeUserData('123', 'user', '5', 'no-image');
