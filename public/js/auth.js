@@ -50,10 +50,10 @@ var signInWithRedirect = function() {
  */
 var handleSignedInUser = function(user) {
     currentUid = user.uid;
-    document.getElementById('user-signed-in').style.display = 'block';
+    document.getElementById('user-signed-in').style.display = 'inline-block';
     document.getElementById('user-signed-out').style.display = 'none';
     document.getElementById('name').textContent = user.displayName;
-    document.getElementById('email').textContent = user.email;
+    // document.getElementById('email').textContent = user.email;
     if (user.photoURL){
         document.getElementById('photo').src = user.photoURL;
         document.getElementById('photo').style.display = 'block';
@@ -81,8 +81,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user && user.uid == currentUid) {
         return;
     }
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('loaded').style.display = 'block';
+    // document.getElementById('loading').style.display = 'none';
+    // document.getElementById('loaded').style.display = 'block';
     user ? handleSignedInUser(user) : handleSignedOutUser();
 });
 
@@ -109,15 +109,13 @@ var deleteAccount = function() {
  * Initializes the app.
  */
 var initApp = function() {
-    document.getElementById('sign-in-with-redirect').addEventListener(
-        'click', signInWithRedirect);
     document.getElementById('sign-out').addEventListener('click', function() {
         firebase.auth().signOut();
     });
-    document.getElementById('delete-account').addEventListener(
-        'click', function() {
-            deleteAccount();
-        });
+    // document.getElementById('delete-account').addEventListener(
+    //     'click', function() {
+    //         deleteAccount();
+    //     });
 };
 
 window.addEventListener('load', initApp);
