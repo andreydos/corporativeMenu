@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="stylesheets/style.css"/>
+    <link rel="stylesheet" href="stylesheets/normalize.min.css"/>
+    <link rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/1.0/firebase-ui-auth.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" integrity="sha384-awusxf8AUojygHf2+joICySzB780jVvQaVCAt1clU3QsyAitLGul28Qxb2r1e5g+" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="main-header">
+            <!--<div id="loading">Loading...</div>-->
+            <!--<div id="loaded" class="not-visible"></div>-->
+            <a href="http://river-soft.net" target="_blank" class="logo">
+                <img src="img/logo.jpg" alt="RiverSoft">
+            </a>
+
+            <div id="user-signed-in" class="not-visible">
+                <div id="user-info">
+                    <div id="photo-container"><img id="photo"/></div>
+                    <div id="name"></div>
+                    <!--<div id="email"></div>-->
+                    <div class="clearfix"></div>
+                </div>
+                <p>
+                    <button id="sign-out">Sign Out</button>
+                    <!--<button id="delete-account">Delete account</button>-->
+                </p>
+            </div>
+        </header>
+
+    </div>
+
+    <div id="user-signed-out" class="not-visible">
+        <div id="firebaseui-container"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+    <script src="js/config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/live/1.0/firebase-ui-auth.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        var pattern = Trianglify({
+            width: 2000,
+            height: window.innerHeight
+        });
+        document.body.appendChild(pattern.canvas())
+    </script>
+</body>
+</html>
