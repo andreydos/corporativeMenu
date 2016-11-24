@@ -15,3 +15,22 @@
 // });
 //
 // writeUserData('123', 'user', '5', 'no-image');
+
+function main() {
+    document.querySelector('.table').addEventListener('click', function (e) {
+        var target = e.target;
+//                if contains  order-all-except-first  run order-all-except-first
+    });
+//            document.querySelectorAll('.order-all-except-first')
+//            document.querySelectorAll('.order-all')
+}
+
+function orderAll() {
+
+}
+
+function orderAllExceptFirst () {
+
+}
+
+document.addEventListener("DOMContentLoaded", main);

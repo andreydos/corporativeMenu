@@ -16,7 +16,9 @@
             <!--<div id="loading">Loading...</div>-->
             <!--<div id="loaded" class="not-visible"></div>-->
             <a href="http://river-soft.net" target="_blank" class="logo">
-                <img src="img/logo.jpg" alt="RiverSoft">
+                <div class="img-wrapper">
+                    <img src="img/logo.jpg" alt="RiverSoft">
+                </div>
             </a>
 
             <div id="user-signed-in" class="not-visible">
@@ -26,12 +28,79 @@
                     <!--<div id="email"></div>-->
                     <div class="clearfix"></div>
                 </div>
-                <p>
-                    <button id="sign-out">Sign Out</button>
-                    <!--<button id="delete-account">Delete account</button>-->
-                </p>
             </div>
+            <p>
+                <button id="sign-out">Sign Out</button>
+                <!--<button id="delete-account">Delete account</button>-->
+            </p>
         </header>
+
+        <section class="main-section">
+            <table class="table table-striped table-hover ">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Первое</th>
+                    <th>Гарнир</th>
+                    <th>Мясное</th>
+                    <th>Салат</th>
+                    <th>Всё</th>
+                    <th>Без первого</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <p>Понедельник</p>
+                        <p>28.11.16</p>
+                    </td>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> <p class="dish">Суп</p>
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> <p class="dish">Каша</p>
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> <p class="dish">Котлета</p>
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> <p class="dish">Соления+Запеканка творожная</p>
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input class="order-all" type="checkbox">
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input class="order-all-except-first" type="checkbox">
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </section>
 
     </div>
 
