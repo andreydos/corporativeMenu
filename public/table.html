@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" integrity="sha384-awusxf8AUojygHf2+joICySzB780jVvQaVCAt1clU3QsyAitLGul28Qxb2r1e5g+" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/temp-table.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            HEADER
+        </header>
+        <section class="main-section">
+            <table class="table table-striped table-hover ">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Первое</th>
+                    <th>Гарнир</th>
+                    <th>Мясное</th>
+                    <th>Салат</th>
+                    <th>Всё</th>
+                    <th>Без первого</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>Понедельник</p>
+                            <p>28.11.16</p>
+                        </td>
+                        <td>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> <p class="dish">Суп</p>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> <p class="dish">Каша</p>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> <p class="dish">Котлета</p>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> <p class="dish">Соления+Запеканка творожная</p>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="checkbox">
+                                <label>
+                                    <input class="order-all" type="checkbox">
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="checkbox">
+                                <label>
+                                    <input class="order-all-except-first" type="checkbox">
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script>
+        function main() {
+            document.querySelector('.table').addEventListener('click', function (e) {
+                var target = e.target;
+//                if contains  order-all-except-first  run order-all-except-first
+            });
+//            document.querySelectorAll('.order-all-except-first')
+//            document.querySelectorAll('.order-all')
+        }
+
+        function orderAll() {
+
+        }
+
+        function orderAllExceptFirst () {
+
+        }
+
+        document.addEventListener("DOMContentLoaded", main);
+    </script>
+</body>
+</html>
