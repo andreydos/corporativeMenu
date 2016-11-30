@@ -14,7 +14,6 @@ var http = require('http');
 var app = express();
 
 var firebaseAdmin = require("firebase-admin");
-
 firebaseAdmin.initializeApp({
     credential: firebaseAdmin.credential.cert("./data/test-base-cfbe6-firebase-adminsdk-bhu0r-2932a305ae.json"),
     databaseURL: "https://test-base-cfbe6.firebaseio.com"
