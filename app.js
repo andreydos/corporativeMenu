@@ -21,7 +21,6 @@ firebaseAdmin.initializeApp({
 
 var database = firebaseAdmin.database();
 
-
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 server.listen(3001);
