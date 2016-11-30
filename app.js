@@ -9,7 +9,33 @@ var wLogger = require('./helpers/wlogger-json')(__filename);
 
 var routes = require('./routes/index');
 
+var http = require('http');
+
 var app = express();
+
+var firebaseAdmin = require("firebase-admin");
+
+firebaseAdmin.initializeApp({
+    credential: firebaseAdmin.credential.cert("./data/test-base-cfbe6-firebase-adminsdk-bhu0r-2932a305ae.json"),
+    databaseURL: "https://test-base-cfbe6.firebaseio.com"
+});
+
+var database = firebaseAdmin.database();
+
+
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
+server.listen(3001);
+
+io.on('connection', function (socket) {
+    socket.on('save order to db', function (data) {
+        if ( !data.date || !data.currentOrder || !data.user) return;
+        wLogger.info('Save order of user: ', data.user);
+
+        database.ref('orders/' + data.date + '/' + data.user).set(data.currentOrder);
+    });
+});
+
 
 wLogger.info('Путь к проекту', __dirname);
 
