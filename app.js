@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var config = require('./config');
 var wLogger = require('./helpers/wlogger-json')(__filename);
 
+const serviceAccount = require('./data/test-base-cfbe6-firebase-adminsdk-bhu0r-2932a305ae.json');
+
 var routes = require('./routes/index');
 
 var http = require('http');
@@ -15,7 +17,7 @@ var app = express();
 
 var firebaseAdmin = require("firebase-admin");
 firebaseAdmin.initializeApp({
-    credential: firebaseAdmin.credential.cert("data/test-base-cfbe6-firebase-adminsdk-bhu0r-2932a305ae.json"),
+    credential: firebaseAdmin.credential.cert(serviceAccount),
     databaseURL: "https://test-base-cfbe6.firebaseio.com"
 });
 
