@@ -6,7 +6,7 @@ var order = {
     salad: ''
 };
 
-var socket = io.connect('https://' + window.location.hostname + ':3001');
+var socket = io();
 
 function main() {
     var pattern = Trianglify({

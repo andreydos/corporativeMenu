@@ -24,11 +24,8 @@ firebaseAdmin.initializeApp({
 var database = firebaseAdmin.database();
 
 var server = https.createServer(app);
-var io = require('socket.io').listen(server)({
-    "transports": ["xhr-polling"],
-    "polling duration": 10
-});
-server.listen(3001);
+var io = require('socket.io').listen(server);
+// server.listen(3001);
 
 io.on('connection', function (socket) {
     socket.on('save order to db', function (data) {
