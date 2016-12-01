@@ -11,7 +11,7 @@ const serviceAccount = require('./data/database');
 
 var routes = require('./routes/index');
 
-var http = require('http');
+var https = require('https');
 
 var app = express();
 
@@ -23,7 +23,7 @@ firebaseAdmin.initializeApp({
 
 var database = firebaseAdmin.database();
 
-var server = http.createServer(app);
+var server = https.createServer(app);
 var io = require('socket.io').listen(server);
 server.listen(3001);
 
