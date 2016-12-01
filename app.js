@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var config = require('./config');
 var wLogger = require('./helpers/wlogger-json')(__filename);
 
-const serviceAccount = require('./database');
+const serviceAccount = require('./data/database');
 
 var routes = require('./routes/index');
 
