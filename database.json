@@ -1,4 +1,4 @@
-module.exports = {
+{
   "type": "service_account",
   "project_id": "test-base-cfbe6",
   "private_key_id": "2932a305ae8799440e14186bbc2632fc9cdc9536",
