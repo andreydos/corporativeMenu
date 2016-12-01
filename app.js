@@ -23,18 +23,6 @@ firebaseAdmin.initializeApp({
 
 var database = firebaseAdmin.database();
 
-var server = https.createServer(app);
-var io = require('socket.io').listen(server);
-// server.listen(3001);
-
-io.on('connection', function (socket) {
-    socket.on('save order to db', function (data) {
-        if ( !data.date || !data.currentOrder || !data.user) return;
-        wLogger.info('Save order of user: ', data.user);
-        database.ref('orders/' + data.date + '/' + data.user).set(data.currentOrder);
-    });
-});
-
 
 wLogger.info('Путь к проекту', __dirname);
 
