@@ -36,13 +36,6 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // Keep track of the currently signed in user.
 var currentUid = null;
 
-/**
- * Redirects to the FirebaseUI widget.
- */
-var signInWithRedirect = function() {
-    window.location.assign('/widget');
-};
-
 
 /**
  * Displays the UI for a signed in user.
