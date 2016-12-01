@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var config = require('./config');
 var wLogger = require('./helpers/wlogger-json')(__filename);
 
-const serviceAccount = require('test-base-cfbe6-firebase-adminsdk-bhu0r-2932a305ae.json');
+const serviceAccount = require('test-base-cfbe6-firebase-adminsdk-bhu0r-2932a305ae');
 
 var routes = require('./routes/index');
 
