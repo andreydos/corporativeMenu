@@ -24,6 +24,7 @@ firebaseAdmin.initializeApp({
 var database = firebaseAdmin.database();
 
 
+
 wLogger.info('Путь к проекту', __dirname);
 
 

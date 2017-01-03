@@ -1,31 +1,75 @@
 extends layout
 
 block content
-    #container
-        h3 FirebaseUI Demo
-        #loading Loading...
-        #loaded.hidden
-            #main
-                #user-signed-in.hidden
-                    #user-info
-                        #photo-container
-                            img#photo
-                        #name
-                        #email
-                        .clearfix
-                    p
-                        button#sign-out Sign Out
-                        button#delete-account Delete account
-                #user-signed-out.hidden
-                    h4 You are signed out.
-                    p
-                        button#sign-in-with-redirect Sign In with Redirect
-                        button#sign-in-with-popup Sign In with Popup
-                    #firebaseui-spa
-                        h5 Single Page Application mode:
-                        #firebaseui-container
+    .container
+        header.main-header
+            // <div id="loading">Loading...</div>
+            // <div id="loaded" class="not-visible"></div>
+            a.logo(href='/', target='_blank')
+                .img-wrapper
+                    img(src='img/logo.png', alt='logo')
+            #user-signed-in.not-visible
+                #user-info
+                    #photo-container
+                        img#photo
+                    #name
+                    // <div id="email"></div>
+                    .clearfix
+            p
+                button#sign-out Sign Out
+                // <button id="delete-account">Delete account</button>
+        .main-section
+            .table-responsive
+                table.table.table-striped.table-hover
+                    thead
+                        tr
+                            th #
+                            th Первое
+                            th Гарнир
+                            th Мясное
+                            th Салат
+                            th Всё
+                            th Без первого
+                    tbody
+                        tr#28-11-16
+                            td
+                                p Понедельник
+                                p 28-11-16
+                            td
+                                .checkbox
+                                    label
+                                        input.dish-item.main-dish(type='checkbox', data-date='28-11-16', data-type='mainDish', value='Суп')
+                                        p.dish Суп
+                            td
+                                .checkbox
+                                    label
+                                        input.dish-item(type='checkbox', data-date='28-11-16', data-type='sideDish', value='Каша')
+                                        p.dish Каша
+                            td
+                                .checkbox
+                                    label
+                                        input.dish-item(type='checkbox', data-date='28-11-16', data-type='meat', value='Котлета')
+                                        p.dish Котлета
+                            td
+                                .checkbox
+                                    label
+                                        input.dish-item(type='checkbox', data-date='28-11-16', data-type='salad', value='Соления+Запеканка творожная')
+                                        p.dish Соления+Запеканка творожная
+                            td
+                                .checkbox
+                                    label
+                                        input.order-all(data-date='28-11-16', type='checkbox')
+                            td
+                                .checkbox
+                                    label
+                                        input.order-all-except-main(data-date='28-11-16', type='checkbox')
+        #user-signed-out.not-visible
+            #firebaseui-container
+    script(src='https://cdn.socket.io/socket.io-1.4.5.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js')
+    script(src='https://www.gstatic.com/firebasejs/3.6.1/firebase.js')
+    script(src='js/config.js')
+    script(src='https://www.gstatic.com/firebasejs/ui/live/1.0/firebase-ui-auth.js')
+    script(src='js/auth.js')
+    script(src='js/main.js')
 
-    #test
-
-    script(src="/js/auth.js")
-    script(src="/js/main.js")
