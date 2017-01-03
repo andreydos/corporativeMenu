@@ -6,6 +6,8 @@ var order = {
     salad: ''
 };
 
+var socket = io.connect('http://localhost:3001');
+
 function main() {
     var pattern = Trianglify({
         width: 2000,
@@ -39,7 +41,7 @@ function main() {
 
         if (currentOrder) {
             console.log(currentOrder);
-            // socket.emit('save order to db', { date: date, currentOrder: currentOrder, user: user.uid });
+            socket.emit('save order to db', { date: date, currentOrder: currentOrder, user: user.uid });
         }
     });
 }
