@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var config = require('./config');
 var wLogger = require('./helpers/wlogger-json')(__filename);
 
+const serviceAccount = require('./data/database');
+
 var routes = require('./routes/index');
 
 var http = require('http');
@@ -15,7 +17,7 @@ var app = express();
 
 var firebaseAdmin = require("firebase-admin");
 firebaseAdmin.initializeApp({
-    credential: firebaseAdmin.credential.cert("./data/test-base-cfbe6-firebase-adminsdk-bhu0r-2932a305ae.json"),
+    credential: firebaseAdmin.credential.cert(serviceAccount),
     databaseURL: "https://test-base-cfbe6.firebaseio.com"
 });
 
@@ -53,7 +55,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 wLogger.info('Путь к public', path.join(__dirname, 'public'));
 
-app.use('/', routes);
+app.get('/', function (req, res, next) {
+    res.render('login');
+    wLogger.req.info(req, 'Переход на стартовую страницу');
+});
+
+app.get('/home', function (req, res, next) {
+    var uid = req.query.u;
+    firebaseAdmin.auth().getUser(uid)
+        .then(function(userRecord) {
+            console.log("Successfully fetched user data:",  userRecord);
+            var ref = database.ref("orders/28-11-16/" + uid);
+            ref.once("value", function(data) {
+                var order = data.val();
+                console.log(order);
+                res.render('index', {user: userRecord, order: order});
+            });
+        })
+        .catch(function(error) {
+            console.log("Error fetching user data:", error);
+        });
+    wLogger.req.info(req, 'Переход на домашнюю страницу');
+});
 
 
 // catch 404 and forward to error handler

@@ -43,16 +43,22 @@ var currentUid = null;
  */
 var handleSignedInUser = function(user) {
     currentUid = user.uid;
-    document.getElementById('user-signed-in').style.display = 'inline-block';
-    document.getElementById('user-signed-out').style.display = 'none';
-    document.getElementById('name').textContent = user.displayName;
-    // document.getElementById('email').textContent = user.email;
-    if (user.photoURL){
-        document.getElementById('photo').src = user.photoURL;
-        document.getElementById('photo').style.display = 'block';
-    } else {
-        document.getElementById('photo').style.display = 'none';
+    console.log('handleSignedInUser 1');
+    if (window.location.pathname !== '/home') {
+        console.log('handleSignedInUser 2');
+
+        window.location.href = '/home?u=' + currentUid;
     }
+    // document.getElementById('user-signed-in').style.display = 'inline-block';
+    // document.getElementById('user-signed-out').style.display = 'none';
+    // document.getElementById('name').textContent = user.displayName;
+    // // document.getElementById('email').textContent = user.email;
+    // if (user.photoURL){
+    //     document.getElementById('photo').src = user.photoURL;
+    //     document.getElementById('photo').style.display = 'block';
+    // } else {
+    //     document.getElementById('photo').style.display = 'none';
+    // }
 };
 
 
@@ -60,8 +66,14 @@ var handleSignedInUser = function(user) {
  * Displays the UI for a signed out user.
  */
 var handleSignedOutUser = function() {
-    document.getElementById('user-signed-in').style.display = 'none';
-    document.getElementById('user-signed-out').style.display = 'block';
+    // document.getElementById('user-signed-in').style.display = 'none';
+    // document.getElementById('user-signed-out').style.display = 'block';
+    console.log('handleSignedOutUser 1');
+    if (    window.location.pathname !== '/' ) {
+        console.log('handleSignedOutUser 2');
+
+        window.location.href = '/';
+    }
     ui.start('#firebaseui-container', uiConfig);
 };
 
@@ -102,9 +114,12 @@ var deleteAccount = function() {
  * Initializes the app.
  */
 var initApp = function() {
-    document.getElementById('sign-out').addEventListener('click', function() {
-        firebase.auth().signOut();
-    });
+    var signOutBtn = document.getElementById('sign-out');
+    if (signOutBtn) {
+        signOutBtn.addEventListener('click', function() {
+            firebase.auth().signOut();
+        });
+    }
     // document.getElementById('delete-account').addEventListener(
     //     'click', function() {
     //         deleteAccount();

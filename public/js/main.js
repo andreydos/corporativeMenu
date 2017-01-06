@@ -10,7 +10,7 @@ var socket = io.connect('http://localhost:3001');
 
 function main() {
     var pattern = Trianglify({
-        width: 2000,
+        width: window.innerWidth,
         height: window.innerHeight
     });
     document.body.appendChild(pattern.canvas())

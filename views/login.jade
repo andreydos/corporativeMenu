@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    div
+        #user-signed-out
+            #firebaseui-container
+    script(src='https://cdn.socket.io/socket.io-1.4.5.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js')
+    script(src='https://www.gstatic.com/firebasejs/3.6.1/firebase.js')
+    script(src='js/config.js')
+    script(src='https://www.gstatic.com/firebasejs/ui/live/1.0/firebase-ui-auth.js')
+    script(src='js/auth.js')
+    script.
+        var pattern = Trianglify({
+            width: window.innerWidth,
+            height: window.innerHeight
+        });
+        document.body.appendChild(pattern.canvas())
+

@@ -11,8 +11,8 @@ block content
             #user-signed-in.not-visible
                 #user-info
                     #photo-container
-                        img#photo
-                    #name
+                        img#photo(src=user.photoURLInternal)
+                    #name= user.displayNameInternal
                     // <div id="email"></div>
                     .clearfix
             p
@@ -38,7 +38,10 @@ block content
                             td
                                 .checkbox
                                     label
-                                        input.dish-item.main-dish(type='checkbox', data-date='28-11-16', data-type='mainDish', value='Суп')
+                                        if order.mainDish
+                                            input.dish-item.main-dish(type='checkbox', data-date='28-11-16', data-type='mainDish', value='Суп', checked)
+                                        else
+                                            input.dish-item.main-dish(type='checkbox', data-date='28-11-16', data-type='mainDish', value='Суп')
                                         p.dish Суп
                             td
                                 .checkbox
