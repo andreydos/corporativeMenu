@@ -9,8 +9,6 @@ var wLogger = require('./helpers/wlogger-json')(__filename);
 
 const serviceAccount = require('./data/database');
 
-var routes = require('./routes/index');
-
 var http = require('http');
 
 var app = express();
@@ -65,12 +63,24 @@ app.get('/home', function (req, res, next) {
     firebaseAdmin.auth().getUser(uid)
         .then(function(userRecord) {
             console.log("Successfully fetched user data:",  userRecord);
-            var ref = database.ref("orders/28-11-16/" + uid);
+            var ref = database.ref("orders/today/" + uid);
             ref.once("value", function(data) {
                 var order = data.val();
-                console.log(order);
-                res.render('index', {user: userRecord, order: order});
+                console.log('order 1: ', order);
+                if (order) {
+                    res.render('index', {user: userRecord, order: order});
+                } else {
+                    ref = database.ref("orders/today");
+                    ref.once("value", function(data) {
+                        var order = data.val();
+                        console.log('order 2: ', order);
+                        if (order) {
+                            res.render('index', {user: userRecord, order: order});
+                        }
+                    });
+                }
             });
+
         })
         .catch(function(error) {
             console.log("Error fetching user data:", error);

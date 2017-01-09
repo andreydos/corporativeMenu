@@ -8,7 +8,7 @@ var uiConfig = {
         }
     },
     // Opens IDP Providers sign-in flow in a popup.
-    'signInFlow': 'popup',
+    'signInFlow': 'redirect',
     'signInOptions': [
         {
             provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,

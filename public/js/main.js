@@ -66,9 +66,10 @@ function orderByAllButtons(date, isChecked, isContainMainDish) {
         var current = dishes[i];
         if (isChecked) {
             current.checked = true;
-            currentOrder[current.dataset.type] = current.value;
+            currentOrder[current.dataset.type] = {name: current.value, status: true};
         } else {
             current.checked = false;
+            currentOrder[current.dataset.type] = {name: current.value, status: false};
         }
     }
     return currentOrder;
@@ -78,17 +79,19 @@ function orderByAllButtons(date, isChecked, isContainMainDish) {
 function orderBySingleButton (date) {
     if ( !date )  return;
     var currentOrder,
-        dishes = [],
-        dayContainer;
-    dayContainer = document.getElementById(date);
+        dayContainer  = document.getElementById(date),
+        dishes = dayContainer.querySelectorAll('.dish-item');
     dayContainer.querySelector('.order-all-except-main').checked = false;
     dayContainer.querySelector('.order-all').checked = false;
     currentOrder = JSON.parse(JSON.stringify(order));
     currentOrder.date = date;
-    dishes = dayContainer.querySelectorAll('.dish-item:checked');
     for (var i = 0, len = dishes.length; i < len; i++) {
         var current = dishes[i];
-        currentOrder[current.dataset.type] = current.value;
+        if (current.checked) {
+            currentOrder[current.dataset.type] = {name: current.value, status: true};
+        } else {
+            currentOrder[current.dataset.type] = {name: current.value, status: false};
+        }
     }
     return currentOrder;
 }

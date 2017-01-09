@@ -11,7 +11,7 @@ block content
             #user-signed-in.not-visible
                 #user-info
                     #photo-container
-                        img#photo(src=user.photoURLInternal)
+                        img#photo(src=(user.photoURLInternal ? user.photoURLInternal : "img/user.ico" ))
                     #name= user.displayNameInternal
                     // <div id="email"></div>
                     .clearfix
@@ -31,41 +31,49 @@ block content
                             th Всё
                             th Без первого
                     tbody
-                        tr#28-11-16
-                            td
-                                p Понедельник
-                                p 28-11-16
+                        tr#today
+                            td(style='vertical-align: middle;')
+                                p= order.date
                             td
                                 .checkbox
                                     label
-                                        if order.mainDish
-                                            input.dish-item.main-dish(type='checkbox', data-date='28-11-16', data-type='mainDish', value='Суп', checked)
+                                        if order.mainDish.status
+                                            input.dish-item.main-dish(type='checkbox', data-date='today', data-type='mainDish', value=order.mainDish.name, checked)
                                         else
-                                            input.dish-item.main-dish(type='checkbox', data-date='28-11-16', data-type='mainDish', value='Суп')
-                                        p.dish Суп
+                                            input.dish-item.main-dish(type='checkbox', data-date='today', data-type='mainDish', value=order.mainDish.name)
+                                        p.dish= order.mainDish.name
                             td
                                 .checkbox
                                     label
-                                        input.dish-item(type='checkbox', data-date='28-11-16', data-type='sideDish', value='Каша')
-                                        p.dish Каша
+                                        if order.sideDish.status
+                                            input.dish-item(type='checkbox', data-date='today', data-type='sideDish', value=order.sideDish.name, checked)
+                                        else
+                                            input.dish-item(type='checkbox', data-date='today', data-type='sideDish', value=order.sideDish.name)
+                                        p.dish= order.sideDish.name
                             td
                                 .checkbox
                                     label
-                                        input.dish-item(type='checkbox', data-date='28-11-16', data-type='meat', value='Котлета')
-                                        p.dish Котлета
+                                        if order.meat.status
+                                            input.dish-item(type='checkbox', data-date='today', data-type='meat', value=order.meat.name, checked)
+                                        else
+                                            input.dish-item(type='checkbox', data-date='today', data-type='meat', value=order.meat.name)
+                                        p.dish= order.meat.name
                             td
                                 .checkbox
                                     label
-                                        input.dish-item(type='checkbox', data-date='28-11-16', data-type='salad', value='Соления+Запеканка творожная')
-                                        p.dish Соления+Запеканка творожная
+                                        if order.salad.status
+                                            input.dish-item(type='checkbox', data-date='today', data-type='salad', value=order.salad.name, checked)
+                                        else
+                                            input.dish-item(type='checkbox', data-date='today', data-type='salad', value=order.salad.name)
+                                        p.dish= order.salad.name
                             td
                                 .checkbox
                                     label
-                                        input.order-all(data-date='28-11-16', type='checkbox')
+                                        input.order-all(data-date='today', type='checkbox')
                             td
                                 .checkbox
                                     label
-                                        input.order-all-except-main(data-date='28-11-16', type='checkbox')
+                                        input.order-all-except-main(data-date='today', type='checkbox')
         #user-signed-out.not-visible
             #firebaseui-container
     script(src='https://cdn.socket.io/socket.io-1.4.5.js')
