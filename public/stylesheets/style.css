@@ -212,4 +212,75 @@ button#sign-out:active {
     width: 1%;
 }
 
+/*rating*/
+.places__item--rating {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    width: 110px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.places__item--rating-list {
+    position: relative;
+    width: 107px;
+    height: 19px;
+    margin: 10px 0;
+    list-style: none;
+    background: url(../img/sprite-stars.png);
+    outline: none; }
+.places__item--rating .rating-list--item {
+    float: left;
+    height: 19px; }
+.places__item--rating .rating-list--item.current {
+    z-index: 1;
+    background: url(../img/sprite-stars.png) left bottom; }
+.places__item--rating .rating-list--item span[class*="star"] {
+    position: absolute;
+    z-index: 5;
+    display: block;
+    width: 22px;
+    height: 19px; }
+.places__item--rating .rating-list--item span.star1 {
+    left: 0; }
+.places__item--rating .rating-list--item span.star2 {
+    left: 22px; }
+.places__item--rating .rating-list--item span.star3 {
+    left: 44px; }
+.places__item--rating .rating-list--item span.star4 {
+    left: 66px; }
+.places__item--rating .rating-list--item span.star5 {
+    left: 88px; }
+.places__item--rating-details {
+    position: absolute;
+    top: 8px;
+    left: 120px;
+    width: 150px;
+    font-size: 0.875em;
+    color: #747474; }
+.list-clear {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+div.checkbox {
+    margin-bottom: 0;
+}
+
+/*TEMP TO HIDE SCORES*/
+.places__item--rating-details {
+    display: none;
+}
+/*end rating*/
+
+p.dish:hover:after {
+    content:"";
+    background-image: url('../img/food-icon.png');
+    background-size: 100%;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    z-index: 100;
+}
 

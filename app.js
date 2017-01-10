@@ -29,6 +29,7 @@ io.on('connection', function (socket) {
     socket.on('save order to db', function (data) {
         if ( !data.date || !data.currentOrder || !data.user) return;
         wLogger.info('Save order of user: ', data.user);
+
         database.ref('orders/' + data.date + '/' + data.user).set(data.currentOrder);
     });
 });

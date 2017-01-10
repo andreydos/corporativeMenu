@@ -1,9 +1,9 @@
 var order = {
-    date: '',
-    mainDish: '',
-    sideDish: '',
-    meat:'',
-    salad: ''
+    date: {},
+    mainDish: {},
+    sideDish: {},
+    meat:{},
+    salad: {}
 };
 
 var socket = io.connect('http://localhost:3001');
@@ -87,10 +87,11 @@ function orderBySingleButton (date) {
     currentOrder.date = date;
     for (var i = 0, len = dishes.length; i < len; i++) {
         var current = dishes[i];
+        console.dir(current);
         if (current.checked) {
-            currentOrder[current.dataset.type] = {name: current.value, status: true};
+            currentOrder[current.dataset.type] = {name: current.value, status: true, rating:current.parentNode.parentNode.nextSibling.childNodes[0].childNodes[0].style.width};
         } else {
-            currentOrder[current.dataset.type] = {name: current.value, status: false};
+            currentOrder[current.dataset.type] = {name: current.value, status: false, rating:current.parentNode.parentNode.nextSibling.childNodes[0].childNodes[0].style.width};
         }
     }
     return currentOrder;

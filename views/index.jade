@@ -42,6 +42,19 @@ block content
                                         else
                                             input.dish-item.main-dish(type='checkbox', data-date='today', data-type='mainDish', value=order.mainDish.name)
                                         p.dish= order.mainDish.name
+                                .places__item--rating
+                                    ul.places__item--rating-list.list-clear
+                                        li.rating-list--item.current(style='width: ' + order.mainDish.rating || '0' +';')
+                                            span.star1(title='1')
+                                        li.rating-list--item
+                                            span.star2(title='2')
+                                        li.rating-list--item
+                                            span.star3(title='3')
+                                        li.rating-list--item
+                                            span.star4(title='4')
+                                        li.rating-list--item
+                                            span.star5(title='5')
+                                    span.places__item--rating-details 5 (оценок: 37)
                             td
                                 .checkbox
                                     label
@@ -50,6 +63,19 @@ block content
                                         else
                                             input.dish-item(type='checkbox', data-date='today', data-type='sideDish', value=order.sideDish.name)
                                         p.dish= order.sideDish.name
+                                .places__item--rating
+                                    ul.places__item--rating-list.list-clear
+                                        li.rating-list--item.current(style='width: ' + order.sideDish.rating +';')
+                                            span.star1(title='1')
+                                        li.rating-list--item
+                                            span.star2(title='2')
+                                        li.rating-list--item
+                                            span.star3(title='3')
+                                        li.rating-list--item
+                                            span.star4(title='4')
+                                        li.rating-list--item
+                                            span.star5(title='5')
+                                    span.places__item--rating-details 5 (оценок: 37)
                             td
                                 .checkbox
                                     label
@@ -58,6 +84,19 @@ block content
                                         else
                                             input.dish-item(type='checkbox', data-date='today', data-type='meat', value=order.meat.name)
                                         p.dish= order.meat.name
+                                .places__item--rating
+                                    ul.places__item--rating-list.list-clear
+                                        li.rating-list--item.current(style='width: ' + order.meat.rating +';')
+                                            span.star1(title='1')
+                                        li.rating-list--item
+                                            span.star2(title='2')
+                                        li.rating-list--item
+                                            span.star3(title='3')
+                                        li.rating-list--item
+                                            span.star4(title='4')
+                                        li.rating-list--item
+                                            span.star5(title='5')
+                                    span.places__item--rating-details 5 (оценок: 37)
                             td
                                 .checkbox
                                     label
@@ -66,6 +105,19 @@ block content
                                         else
                                             input.dish-item(type='checkbox', data-date='today', data-type='salad', value=order.salad.name)
                                         p.dish= order.salad.name
+                                .places__item--rating
+                                    ul.places__item--rating-list.list-clear
+                                        li.rating-list--item.current(style='width: ' + order.salad.rating +';')
+                                            span.star1(title='1')
+                                        li.rating-list--item
+                                            span.star2(title='2')
+                                        li.rating-list--item
+                                            span.star3(title='3')
+                                        li.rating-list--item
+                                            span.star4(title='4')
+                                        li.rating-list--item
+                                            span.star5(title='5')
+                                    span.places__item--rating-details 5 (оценок: 37)
                             td
                                 .checkbox
                                     label
@@ -83,4 +135,5 @@ block content
     script(src='https://www.gstatic.com/firebasejs/ui/live/1.0/firebase-ui-auth.js')
     script(src='js/auth.js')
     script(src='js/main.js')
+    script(src='js/rating.js')
 

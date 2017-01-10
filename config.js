@@ -1,6 +1,6 @@
 var config = {
     runMode: 'development',
-    defaultPort: '3000',
+    defaultPort: '3005',
     defaultProtocol: 'http',
     superUser: {
         username: 'user',
